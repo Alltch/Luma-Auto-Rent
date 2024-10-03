@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<script src="{% static 'js/car_script.js' %}" defer></script>
+{% endblock %}
+
+{% block title %}
+Luma AutoRent - {{ car.get_name }}
+{% endblock %}
+
+{% block content %}
+<div id="car_page" class="page">
+    <div id="car_imgs_wrapper">
+        <div class="car_imgs_btns">
+            <div class="cimg_btn" id="cib_1"><ion-icon name="chevron-back-sharp"></ion-icon></div>
+            <div class="cimg_btn" id="cib_2"><ion-icon name="chevron-forward-sharp"></ion-icon></div>
+        </div>
+        <div id="car_imgs_slider">
+            {% for image in images %}
+            <div class="car_img_con"><img style="border-radius: 10px !important;" class="car_img_con_data" src="{{ image.image.url }}" alt="car: {{ car.get_name }}"></div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="car_page_info">
+        <div class="cpi_left_block">
+            <h2>Год выпуска: <span>{{ car.year }}</span></h2>
+            <h2>Модель: <span>{{ car.get_name }}</span></h2>
+            <h2>Привод: <span>{{ car.drive_type }}</span></h2>
+            <h2>Обьем мотора: <span>{{ car.get_full_volume }}</span></h2>
+            <h2>Статус: <span>{{ car.get_status }}</span></h2>
+        </div>
+        <div class="cpi_right_block">
+            <form method="post" class="mb-4">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label for="full_name">Полное имя:</label>
+                    <input placeholder="Укажите ФИО" type="text" id="full_name" name="full_name" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone_number">Номер телефона:</label>
+                    <input placeholder="Укажите номер тефона" type="tel" id="phone_number" name="phone_number" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="date_start">Дата начала аренды:</label>
+                    <input type="date" id="date_start" name="date_start" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="date_end">Дата окончания аренды:</label>
+                    <input type="date" id="date_end" name="date_end" class="form-control" required>
+                </div>
+                {% if messages %}
+                {% for message in messages %}
+                {% if message.tags %}
+                <p class="text-{{ message.tags }} text-danger">
+                    {{ message }}
+                </p>
+                {% else %}
+                <p class="card-text text-danger">
+                    {{ message }}
+                </p>
+                {% endif %}
+                {% endfor %}
+                {% endif %}
+
+                <button type="submit" class="btn btn-primary">Забронировать</button>
+            </form>
+        </div>
+    </div>
+    <div class="divTable">
+        <div class="divTableBody">
+            <div class="divTableRow">
+                <div class="divTableCell">6 часов</div>
+                <div class="divTableCell">12 часов</div>
+                <div class="divTableCell">24 часов</div>
+            </div>
+            <div class="divTableRow">
+                <div class="divTableCell">{{ car.price_6_hours }}тг</div>
+                <div class="divTableCell">{{ car.price_12_hours }}тг</div>
+                <div class="divTableCell">{{ car.price_24_hours }}тг</div>
+            </div>
+        </div>
+    </div>
+    <div class="car_page_det">
+        <div class="cpd_detail">
+            <span>Обязательный страховой взнос:</span>
+            <span>300000 руб</span>
+        </div>
+        <div class="cpd_detail">
+            <span>Личный водитель:</span>
+            <span>По запросу</span>
+        </div>
+    </div>
+    <div class="car_description_page">
+        <div class="page2_about"></div>
+        <div class="p2a_title">
+            О Машине
+        </div>
+        <div class="p2a_content">
+            <div class="p2a_content_text">
+                {% if car.get_full_description %}
+                {{ car.get_full_description }}
+                {% elif car.description %}
+                {{ car.description }}
+                {% endif %}
+            </div>
+            <div class="p2a_content_text">
+                {% if car.why_this_car %}
+                {{ car.why_this_car }}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
