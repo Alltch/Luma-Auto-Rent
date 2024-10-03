@@ -14,7 +14,6 @@ Luma AutoRent
         <div class="autopark_grid">
             {% for car in cars %}
             <div class="auto_card">
-                <div class="auto_card_detail">NEW</div>
                 <a href="{% url 'car_detail' car.id %}" class="auto_card_img_wrapper">
                     {% if car.images.exists %}
                         {% for image in car.images.all|slice:":2" %}

@@ -11,33 +11,37 @@ Luma AutoRent
 
 {% block content %}
 <header id="header">
-    <video src="{% static 'videos/your-video.mp4' %}" autoplay loop muted></video>
+    <video class="header_video" src="{% static 'videos/your-video.mp4' %}" autoplay loop muted></video>
+    <img class="header_image" src="{% static 'img/your-image.png' %}" alt="Аренда авто" />
     <div class="header_block">
         <h1>Аренда авто премиум класса</h1>
-        <h3>У нас вы найдете самый качественный асортимент автомобилей сдающихся в аренду</h3>
+        <h3>У нас вы найдете самый качественный ассортимент автомобилей сдающихся в аренду</h3>
         <a href="{% url 'autopark' %}" class="button">Просмотреть Автопарк <ion-icon name="arrow-forward-outline"></ion-icon></a>
     </div>
+    <div class="header_contact_block">
+        <div class="c_btns_container"></div>
+            <a href="tel:+77001550555" class="c_btn c_btn_tg">Связаться с Менеджером</a>
+            <a href="https://api.whatsapp.com/send/?phone=77001550555&text&type=phone_number&app_absent=0" class="c_btn c_btn_wa">Связаться в Whatsapp</a>
+        </div>
+    </div>
 </header>
-<div class="page" id="page1">
-    <div class="page_block">
-        <h1>Доступные для аренды</h1>
-        <div class="page1_autopark_grid">
-            {% for car in cars %}
-                <div class="autopark_card">
-                    <a href="{% url 'car_detail' car.id %}" class="autopark_card_img_wrapper">
-                        {% if car.images.all %}
-                            {% for image in car.images.all|slice:":2" %}
-                                <img style="border-radius: 10px;" id="home_car_images" src="{{ image.image.url }}" alt="{{ car.get_name }}">
-                            {% endfor %}
-                        {% else %}
-                            <img style="border-radius: 10px;" id="home_car_images" src="{% static 'img/logo.jpeg' %}" alt="No image available">
-                        {% endif %}
-                    </a>
-                    <div class="auto_card_content" style="text-align: center;">
-                        <h1>{{ car.get_name }}</h1>
-                    </div>
-                </div>
-            {% endfor %}
+<div class="pageAfterHeader_about_grid">
+    <div class="pahag_row">
+        <div class="pah_bg">
+            <img src="media/line1.png" alt="">
+            <img src="media/line2.png" alt="">
+        </div>
+        <div class="pah_card">
+            <h1>10 лет</h1>
+            <p>На рынке</p>
+        </div>
+        <div class="pah_card">
+            <h1>48</h1>
+            <p>Авто в парке</p>
+        </div>
+        <div class="pah_card">
+            <h1>> 10.000 </h1>
+            <p>Довольных Покупателей</p>
         </div>
     </div>
 </div>
@@ -45,48 +49,6 @@ Luma AutoRent
 <div class="page" id="page2">
     <div class="page_block">
         <h1 id="o_company">О Компании</h1>
-        <div class="page2_about_grid">
-            <div class="p2ag_row">
-                <div class="about_grid_card">
-                    <h2>15+ уникальных авто в аренду из нашего автопарка</h2>
-                    <div class="agc_bottom">
-                        <ion-icon name="car-sport-outline"></ion-icon>
-                    </div>
-                </div>
-                <div class="about_grid_card">
-                    <h2>15+ уникальных авто в аренду из нашего автопарка</h2>
-                    <div class="agc_bottom">
-                        <ion-icon name="car-sport-outline"></ion-icon>
-                    </div>
-                </div>
-                <div class="about_grid_card">
-                    <h2>15+ уникальных авто в аренду из нашего автопарка</h2>
-                    <div class="agc_bottom">
-                        <ion-icon name="car-sport-outline"></ion-icon>
-                    </div>
-                </div>
-            </div>
-            <div class="p2ag_row">
-                <div class="about_grid_card">
-                    <h2>15+ уникальных авто в аренду из нашего автопарка</h2>
-                    <div class="agc_bottom">
-                        <ion-icon name="car-sport-outline"></ion-icon>
-                    </div>
-                </div>
-                <div class="about_grid_card">
-                    <h2>15+ уникальных авто в аренду из нашего автопарка</h2>
-                    <div class="agc_bottom">
-                        <ion-icon name="car-sport-outline"></ion-icon>
-                    </div>
-                </div>
-                <div class="about_grid_card">
-                    <h2>15+ уникальных авто в аренду из нашего автопарка</h2>
-                    <div class="agc_bottom">
-                        <ion-icon name="car-sport-outline"></ion-icon>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="page2_about">
             <div class="p2a_title">
                 Добро Пожаловать в Luma AutoRent!

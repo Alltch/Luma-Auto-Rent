@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="icon" type="image/x-icon" href="{% static 'img/logo.jpeg' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'img/logo.png' %}">
     {% block style %}{% endblock %}
 </head>
 
@@ -28,23 +28,22 @@
         </div>
         <div class="cap_block">
             <div class="cap_contacts">
-                <a href="https://t.me/alltchumb">Телеграм <ion-icon name="paper-plane-outline"></ion-icon></a>
-                <a href="https://www.instagram.com/lumaautorent">Инстаграм <ion-icon name="logo-instagram"></ion-icon></a>
-                <a href="#">Ватсап <ion-icon name="logo-whatsapp"></ion-icon></a>
-                <a href="#">+7 (707) 777-77-77</a>
+                <a href="tel:+77001550555">+7-700-155-05-55<ion-icon name="call-outline"></ion-icon></a>
+                <a href="https://www.instagram.com/lumaautorent">Instagram <ion-icon name="logo-instagram"></ion-icon></a>
+                <a href="https://api.whatsapp.com/send/?phone=77001550555&text&type=phone_number&app_absent=0">Whatsapp <ion-icon name="logo-whatsapp"></ion-icon></a>
             </div>
             <div id="menu" data-menu-open="false">
                 <div id="menu_content">
                     <a href="{% url 'autopark' %}">Автопарк</a>
                     <a href="{% url 'terms' %}">Условия</a>
                     <a href="{% url 'feedbacks' %}">Отзывы</a>
-                    <a href="https://t.me/alltchumb">Телеграм <ion-icon name="paper-plane-outline"></ion-icon></a>
-                    <a href="https://www.instagram.com/lumaautorent">Инстаграм <ion-icon name="logo-instagram"></ion-icon></a>
-                    <a href="#">Ватсап <ion-icon name="logo-whatsapp"></ion-icon></a>
                 </div>
                 <div id="menu_icons">
-                    <ion-icon name="menu-outline" id="menu_open_btn"></ion-icon>
-                    <ion-icon name="close-outline" id="menu_close_btn"></ion-icon>
+                    <a href="tel:+77001550555"><ion-icon name="call-outline"></ion-icon></a>
+                    <a href="https://www.instagram.com/lumaautorent"><ion-icon name="logo-instagram"></ion-icon></a>
+                    <a href="https://api.whatsapp.com/send/?phone=77001550555&text&type=phone_number&app_absent=0"><ion-icon name="logo-whatsapp"></ion-icon></a>
+                    <a><ion-icon name="menu-outline" id="menu_open_btn"></ion-icon></a>
+                    <a><ion-icon name="close-outline" id="menu_close_btn"></ion-icon></a>
                 </div>
             </div>
         </div>
@@ -80,8 +79,8 @@
                     </span>
                 </h2>
                 <a href="tel:+77077777777"><ion-icon name="call-outline"></ion-icon>+7 (707) 777-77-77</a>
-                <a href="#"><ion-icon name="business-outline"></ion-icon>Алматы</a>
-                <a href="#"><ion-icon name="at-outline"></ion-icon>lumaautorent@gmail.com</a>
+                <a href="https://2gis.kz/almaty/search/Гагарин%20310к5/geo/70030076483093643/76.901577%2C43.201284"><ion-icon name="business-outline"></ion-icon>Алматы, Гагарин 310к5</a>
+                <a href=""><ion-icon name="at-outline"></ion-icon>Lumaautorent@gmail.com</a>
             </div>
         </div>
     </footer>

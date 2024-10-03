@@ -22,10 +22,9 @@
     background: black;
     border-radius: 25px;
 }
-
 /* GENERAL */
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 :root{
     --cap-h: 13vh;
     --com-gap: 3vw;
@@ -36,6 +35,7 @@
     --sec-col-rgb: rgb(243, 243, 243);
 
     --main-col-dark: #141414;
+    --main-col-light: #191919;
 
     --transition: .3s;
 
@@ -218,6 +218,13 @@ body{
     gap: 10px;
 }
 
+.cap_contacts_with_menu{
+    position: absolute;
+    top: 0;
+    width: 50%;
+    left: 0%;
+}
+
 .page{
     position: relative;
     width: 100vw;
@@ -273,6 +280,29 @@ header::after{
     gap: var(--com-gap);
 }
 
+.header_contact_block{
+    width: 100%;
+    height: 30%;
+    z-index: 8;
+    position: absolute;
+    bottom: 0;
+    display: none;
+    gap: calc(var(--com-gap)*2);
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+
+    margin-bottom: 5vh;
+}
+
+.header_contact_block > .c_btns_container{
+    margin-top: 0;
+}
+
+.header_contact_block > .c_btns_container > .c_btn{
+    padding: 7px 10px;
+}
+
 .header_block h1{
     font-size: 4em;
     font-weight: bold;
@@ -289,8 +319,71 @@ header::after{
     height: 100%;
 }
 
+.pageAfterHeader_about_grid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 50vh;
+    background: var(--main-col);
+    padding: 0 var(--off);
+    z-index: 5555555;
+}
+
+.pahag_row{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding-top: var(--off);
+}
+
+.pah_card {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.5em;
+    text-align: center;
+    gap: calc(var(--com-gap)/2);
+    z-index: 2;
+}
+
+.pah_card > h1 {
+    font-size: 2.5em;
+    font-family: Helvetica, sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    -webkit-text-stroke: 1px var(--sec-col);
+}
+
+.pah_bg{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    margin-top: calc(var(--off)/2);
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--main-col-light);
+    mask-image: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 85%, rgba(255,255,255,0) 100%);
+}
+
+.pah_bg > img{
+    position: absolute;
+    width: 100%;
+    height: 20%;
+}
+.pah_bg > img:nth-of-type(2){
+    width: 150%;
+    bottom: 20%;
+}
+
 #page1{
-    height: 120vh;
+    height: 170vh;
     padding-top: 10vh;
 }
 
@@ -303,8 +396,11 @@ header::after{
     position: relative;
     width: 100%;
     height: 100%;
+    justify-content: space-evenly;
+    flex-direction: row;
     display: flex;
     flex-wrap: wrap;
+    align-content: flex-start;
     flex-grow: 2;
     gap: calc(var(--com-gap));
 }
@@ -314,9 +410,8 @@ header::after{
     display: flex;
     flex-direction: column;
     width: 45%;
-    height: 45vh;
+    height: 60vh;
     /* box-shadow: 0px 40px 50px 0px rgba(211, 211, 211, 0.1); */
-    overflow: hidden;
 }
 
 .autopark_card_detail{
@@ -341,7 +436,7 @@ header::after{
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 85%;
+    height: 80%;
 }
 
 .autopark_card_img_wrapper:hover img:nth-child(2){
@@ -351,7 +446,7 @@ header::after{
 .autopark_card img{
     display: flex;
     width: 100%;
-    /* height: 100%; */
+    height: 100%;
     object-fit: cover;
     position: absolute;
 
@@ -413,63 +508,13 @@ header::after{
 }
 
 #page2{
-    height: 200vh;
+    height: 100vh;
     justify-content: start;
     align-items: start;
 }
 
 #page2 .page_block{
     justify-content: start;
-}
-
-#page2 .page_block > h1{
-    font-size: 4em;
-    margin-bottom: calc(var(--com-gap)*2);
-}
-
-.page2_about_grid{
-    position: relative;
-    width: 100%;
-    height: 80vh;
-    display: flex;
-    flex-direction: column;
-}
-
-.p2ag_row{
-    display: flex;
-    width: 100%;
-    height: 50%;
-    justify-content: space-between;
-}
-
-.about_grid_card{
-    position: relative;
-    font-size: 0.8em;
-    padding: calc(var(--com-gap)/2);
-    width: 30%;
-    height: 30vh;
-    border: 1px solid grey;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.about_grid_card h2{
-    font-weight: 800;
-}
-.agc_bottom{
-    width: 100%;
-    position: relative;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    font-size: 3em;
-    bottom: 0;
-    
-}
-.agc_bottom ion-icon{
-    color: grey;
 }
 
 .page2_about{
@@ -495,6 +540,49 @@ header::after{
 .p2a_content_text{
     line-height: 2em;
     color: lightgray;
+}
+
+#gallery_page{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 130vh;
+}
+
+#gallery_page > h2{
+    position: absolute;
+    left: var(--off);
+    top: calc(var(--com-gap)*2);
+    margin: var(--com-gap);
+    font-size: 3em;
+    font-weight: 600;
+}
+
+#gallery_imgs_wrapper{
+    --img-con-w: 70vw;
+    position: absolute;
+    left: 0;
+    bottom: calc(var(--com-gap)*2);
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    transition: var(--transition);
+}
+
+#gallery_imgs_slider{
+    position: relative;
+    width: fit-content;
+    height: 100%;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    padding: 0 calc((100vw - var(--img-con-w))/2);
+    transition: var(--transition);
+    gap: calc(var(--com-gap)*2);
 }
 
 #page3{
@@ -672,7 +760,8 @@ header::after{
     display: flex;
     flex-direction: column;
     background: var(--main-col-dark);
-    gap: 5px;
+    gap: 10px;
+    height: fit-content;
 }
 
 .terms_right .details{
@@ -800,6 +889,24 @@ header::after{
     padding-top: 20vh;
 }
 
+.autopark_bg {
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+}
+
+.autopark_bg img{
+    width: 50%;
+    position: relative;
+    display: flex;
+    opacity: 0.08;
+}
+
 #autopark_page > h1{
     font-size: 2em;
     font-weight: 800;
@@ -814,6 +921,7 @@ header::after{
     display: flex;
     flex-wrap: wrap;
     flex-grow: 2;
+    align-content: flex-start;
     
     gap: calc(var(--com-gap));
     width: 100%;
@@ -825,14 +933,14 @@ header::after{
     display: flex;
     flex-direction: column;
     width: 30%;
-    height: 40vh;
+    height: 35vh;
 }
 
 .auto_card_img_wrapper{
     position: relative;
     display: flex;
     width: 100%;
-    height: 80%;
+    height: 25vh;
 }
 
 .auto_card_detail{
@@ -858,7 +966,6 @@ header::after{
 .auto_card img{
     display: flex;
     width: 100%;
-    height: 100%;
     object-fit: cover;
     position: absolute;
 
@@ -874,11 +981,13 @@ header::after{
 
 .auto_card_content{
     width: 100%;
-    height: 20%;
+    height: 10vh;
     display: flex;
     flex-direction: column;
     gap: calc(var(--com-gap)/3);
     padding-top: calc(var(--com-gap)/3);
+    justify-content: center;
+    align-items: center;
 }
 
 .auto_card_content h1{
@@ -1203,18 +1312,27 @@ footer::after{
 }
 
 #menu_icons{
+    display: flex;
+    align-items: center;
     position: relative;
     font-size: 2em;
     z-index: 5555;
     top: calc(var(--cap-h)/4);
     right: calc(var(--off));
+    gap: calc(var(--com-gap)*2);
     font-size: 2.5em;
 }
 
-#menu[data-menu-open="false"] #menu_icons ion-icon:nth-child(2){
+#menu_icons a:nth-child(2){
+    font-size: 0.9em;
+}
+#menu_icons a:nth-child(1){
+    font-size: 0.9em;
+}
+#menu[data-menu-open="true"] #menu_icons a:nth-child(3){
     display: none;
 }
-#menu[data-menu-open="true"] #menu_icons ion-icon:nth-child(1){
+#menu[data-menu-open="false"] #menu_icons a:nth-child(4){
     display: none;
 }
 
@@ -1249,7 +1367,7 @@ body:has(#menu[data-menu-open="true"]){
 }
 
 
-@media (max-width: 700px){
+@media (max-width: 768px){
     :root{
         --off: 5vw;
         --det-h: 25vh;
@@ -1259,6 +1377,7 @@ body:has(#menu[data-menu-open="true"]){
     }
     #menu{
         display: flex;
+        position: fixed;
     }
     .button{
         border: 2px solid var(--sec-col);
@@ -1293,6 +1412,9 @@ body:has(#menu[data-menu-open="true"]){
     #cap_logo img{
         height: 60%;
     }
+    a::after{
+        display: none !important;
+    }
 
     .header_block{
         bottom: calc(var(--cap-h)*1.5);
@@ -1300,33 +1422,58 @@ body:has(#menu[data-menu-open="true"]){
         justify-content: center;
         align-items: center;
         gap: calc(var(--com-gap)*2);
+        margin-bottom: 10vh;
     }
     .header_block h1{
         font-size: 3em;
     }
-    header video{
-        filter: brightness(0.4);
+    
+    .header_video {
+        display: none;
+    }
+    .header_image {
+        display: block;
+        width: 100%;
+        height: auto;
     }
 
-    .autopark_card{
-        /* height: 25vh; */
+    .pageAfterHeader_about_grid{
+        height: 100vh;
+    }
+    .pahag_row{
+        flex-direction: column;
+        align-items: center;
+        gap: calc(var(--com-gap)*6);
+    }
+    .pah_card{
         width: 100%;
-        height: 40vh;
+    }
+    .pah_bg > img{
+        width: 200%;
+    }
+    .pah_bg > img:nth-of-type(2){
+        width: 350%;
+        bottom: 0;
+    }
+
+    /* .autopark_card_img_wrapper{
+        height: auto;
+    } */
+    .autopark_card{
+        height: 20vh;
     }
     .autopark_card img{
         height: auto;
     }
     #page1{
-        height: 250vh;
-        overflow: hidden;
-
+        height: 90vh;
     }
     #page1 .page_block > h1{
         font-size: 3em;
     }
     .autopark_card_content{
         margin-top: calc(var(--com-gap));
-        gap: calc(var(--com-gap)*7);
+        gap: calc(var(--com-gap)*2);
     }
     .autopark_card_detail{
         width: 10vw;
@@ -1338,12 +1485,9 @@ body:has(#menu[data-menu-open="true"]){
         flex-direction: column;
         text-align: center;
     }
-    .autopark_card_img_wrapper:hover img:nth-child(2){
-        opacity: 0;
-    }
 
     #page2{
-        height: 320vh;
+        height: 140vh;
     }
     #page2 .page_block > h1{
         font-size: 3em;
@@ -1404,6 +1548,12 @@ body:has(#menu[data-menu-open="true"]){
         justify-content: center;
         align-items: center;
     }
+    .header_contact_block{
+        display: flex;
+    }
+    .header_contact_block .c_btn{
+        width: 70% ;
+    }    
     .contact_card::after{
         display: none;
     }
@@ -1467,21 +1617,34 @@ body:has(#menu[data-menu-open="true"]){
     }
 
     #autopark_page{
-        height: 500vh;
+        height: 200vh;
+    }
+    .autopark_bg img{
+        width: 100%;
     }
     .auto_card{
-        width: 40%;
+        width: 45%;
         height: 20vh;
+        margin-bottom: 5vh;
+    }
+    .auto_card_img_wrapper{
+        justify-content: center;
+        align-items: center;
+        height: 50%;
+    }
+    .auto_card img{
+        height: auto;
     }
     .autopark_grid{
-        justify-content: space-around;
+        justify-content: space-between;
+        padding: 0 calc(var(--off));
     }
     .auto_card_detail{
         width: 10vw;
     }
     .auto_card_content{
         margin-top: calc(var(--com-gap));
-        gap: calc(var(--com-gap)*2);
+        gap: calc(var(--com-gap));
     }
 
     #car_page{
@@ -1578,110 +1741,5 @@ body:has(#menu[data-menu-open="true"]){
         height: max-content;
         flex-direction: column;
         gap: calc(var(--com-gap)*2);
-    }
-}
-/* General styling for form containers */
-.cpi_right_block {
-    background-color: #1b1b1b; /* Dark background */
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    color: #fff; /* White text color */
-    display: flex;
-    justify-content: space-between;
-}
-
-/* Styling for the left column (car details) */
-.cpi_right_block_left {
-    flex: 1;
-    font-size: 16px;
-    line-height: 1.6;
-}
-
-.cpi_right_block_left label {
-    color: #ddd; /* Light text for labels */
-}
-
-/* Styling for the form on the right */
-.cpi_right_block_right {
-    flex: 1;
-    padding-left: 20px;
-}
-
-/* Input fields */
-input[type="text"],
-input[type="tel"],
-input[type="date"] {
-    background-color: #2a2a2a; /* Darker input background */
-    border: 1px solid #444; /* Subtle border */
-    border-radius: 6px;
-    padding: 10px;
-    color: #fff; /* White text */
-    width: 100%;
-    margin-bottom: 10px;
-    font-size: 14px;
-}
-
-/* Input fields on focus */
-input[type="text"]:focus,
-input[type="tel"]:focus,
-input[type="date"]:focus {
-    border-color: #0056b3; /* Light blue border on focus */
-    outline: none;
-    box-shadow: 0 0 8px rgba(0, 86, 179, 0.5); /* Blue shadow on focus */
-}
-
-/* Placeholder styling */
-input::placeholder {
-    color: #999; /* Lighter color for placeholders */
-}
-
-/* Button styling */
-button[type="submit"] {
-    background-color: #0056b3; /* Main button color */
-    color: #fff;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 6px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 100%;
-    font-weight: bold;
-}
-
-/* Button hover effect */
-button[type="submit"]:hover {
-    background-color: #004494; /* Darker blue on hover */
-}
-
-/* Styling for the form labels */
-label {
-    font-size: 14px;
-    margin-bottom: 5px;
-    display: block;
-    color: #ccc; /* Slightly lighter label color */
-}
-
-/* Error message styling */
-.text-danger {
-    color: #ff5c5c; /* Red color for error messages */
-    font-size: 12px;
-}
-
-/* Flexbox responsiveness for smaller screens */
-@media (max-width: 768px) {
-    .cpi_right_block {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .cpi_right_block_right {
-        padding-left: 0;
-        margin-top: 20px;
-    }
-
-    button[type="submit"] {
-        width: 100%;
     }
 }
