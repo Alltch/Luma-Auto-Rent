@@ -31,46 +31,6 @@ Luma AutoRent - {{ car.get_name }}
             <h2>Обьем мотора: <span>{{ car.get_full_volume }}</span></h2>
             <h2>Статус: <span>{{ car.get_status }}</span></h2>
         </div>
-        <div class="cpi_right_block">
-            <form method="post" class="mb-4">
-                {% csrf_token %}
-
-                <div class="form-group">
-                    <label for="full_name">Полное имя:</label>
-                    <input placeholder="Укажите ФИО" type="text" id="full_name" name="full_name" class="form-control" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="phone_number">Номер телефона:</label>
-                    <input placeholder="Укажите номер тефона" type="tel" id="phone_number" name="phone_number" class="form-control" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="date_start">Дата начала аренды:</label>
-                    <input type="date" id="date_start" name="date_start" class="form-control" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="date_end">Дата окончания аренды:</label>
-                    <input type="date" id="date_end" name="date_end" class="form-control" required>
-                </div>
-                {% if messages %}
-                {% for message in messages %}
-                {% if message.tags %}
-                <p class="text-{{ message.tags }} text-danger">
-                    {{ message }}
-                </p>
-                {% else %}
-                <p class="card-text text-danger">
-                    {{ message }}
-                </p>
-                {% endif %}
-                {% endfor %}
-                {% endif %}
-
-                <button type="submit" class="btn btn-primary">Забронировать</button>
-            </form>
-        </div>
     </div>
     <div class="divTable">
         <div class="divTableBody">
