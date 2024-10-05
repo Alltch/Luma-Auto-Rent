@@ -11,6 +11,7 @@ Luma AutoRent
 
 {% block content %}
     <div id="autopark_page" class="page">
+        <h1>Доступные в аренду</h1>
         <div class="autopark_grid">
             {% for car in cars %}
             <div class="auto_card">
@@ -20,7 +21,7 @@ Luma AutoRent
                         <img style="border-radius: 10px;" src="{{ image.image.url }}" alt="{{ car.get_name }}">
                         {% endfor %}
                     {% else %}
-                    <img style="border-radius: 10px;" id="home_car_images" src="{% static 'img/logo.jpeg' %}" alt="No image available">
+                    <img style="border-radius: 10px;" id="home_car_images" src="{% static 'img/logo.png' %}" alt="No image available">
                     {% endif %}
                 </a>
                 <div class="auto_card_content">

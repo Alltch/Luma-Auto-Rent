@@ -1017,7 +1017,7 @@ header::after{
 /* CAR PAGE */
 
 #car_page{
-    height: 420vh;
+    height: 300vh;
     padding-top: 20vh;
 }
 
@@ -1436,7 +1436,7 @@ body:has(#menu[data-menu-open="true"]){
         justify-content: center;
         align-items: center;
         gap: calc(var(--com-gap)*2);
-        margin-bottom: 10vh;
+        margin-bottom: 15vh;
     }
     .header_block h1{
         font-size: 3em;
@@ -1585,7 +1585,7 @@ body:has(#menu[data-menu-open="true"]){
     }
 
     #terms_page{
-        height: 400vh;
+        height: auto;
     }
     .terms_content{
         flex-direction: column;
@@ -1651,7 +1651,6 @@ body:has(#menu[data-menu-open="true"]){
     }
     .autopark_grid{
         justify-content: space-between;
-        padding: 0 calc(var(--off));
     }
     .auto_card_detail{
         width: 10vw;
@@ -1665,7 +1664,7 @@ body:has(#menu[data-menu-open="true"]){
     }
 
     #car_page{
-        height: 450vh;
+        height: auto;
     }
     #car_imgs_wrapper{
         --img-con-w: 100vw;

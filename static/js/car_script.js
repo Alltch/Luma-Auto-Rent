@@ -3,12 +3,13 @@ const cib2 = document.getElementById('cib_2');
 const carImgsSlider = document.getElementById('car_imgs_slider')
 const carImgCon = document.getElementsByClassName('car_img_con');
 
-currentImgIndex = 0
-maxImgs = 3
+const carImgContainers = document.querySelectorAll('.car_img_con_data');
+let currentImgIndex = 0;
+let maxImgs = carImgContainers.length;
 
-// changeSlider = (pageIndex) => {
-//     carImgsSlider.style.transform = `translate(-${100*pageIndex}vw)`;
-// }
+changeSlider = (pageIndex) => {
+    carImgsSlider.style.transform = `translate(-${100*pageIndex}vw)`;
+}
 
 changeSlider = (pageIndex) => {
         carImgsSlider.style.transform = `translate(calc((var(--img-con-w)*${pageIndex} + var(--com-gap)*${2*pageIndex})*-1))`;
