@@ -1,5 +1,7 @@
 import os
 import configparser
+from datetime import timedelta
+
 from pathlib import Path
 from string import ascii_lowercase, digits
 
@@ -39,6 +41,11 @@ ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
     'rest_framework',
+
+    
+    'rest_framework_simplejwt',
+    'djoser',
+    'api',
     # 'rest_framework.authtoken',
 
     'drf_yasg',
@@ -67,6 +74,28 @@ TEMPLATES = [
 MIDDLEWARE = [
 
 ] + DEFAULT_MIDDLEWARE
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
+
+DJOSER = {
+    'LOGIN_FIELD': 'username',
+    'TOKEN_MODEL': 'rest_framework_simplejwt.token_blacklist.models.BlacklistedToken',
+}
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),  # Время жизни access токена
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),  # Время жизни refresh токена
+    'ROTATE_REFRESH_TOKENS': True,
+    'BLACKLIST_AFTER_ROTATION': True,
+    'ALGORITHM': 'HS256',  # Алгоритм, который будет использоваться для подписи токена
+    'SIGNING_KEY': SECRET_KEY,
+    'AUTH_HEADER_TYPES': ('Bearer',),  # Тип заголовка авторизации
+}
 
 
 ROOT_URLCONF = 'core.urls'
