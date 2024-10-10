@@ -67,8 +67,8 @@ class CarImageResource(resources.ModelResource):
 @admin.register(CarImage)
 class CarImageAdmin(ImportExportModelAdmin):
     resource_class = CarImageResource
-    list_display = ('view_image', 'car_link', 'id', 'created_at',
-                    'updated_at')  # Добавляем кастомное поле car_link
+    list_display = ('view_image', 'car_name', 'id', 'created_at',
+                    'updated_at')
     search_fields = ('image',)
     ordering = ('-id',)
 
@@ -85,11 +85,10 @@ class CarImageAdmin(ImportExportModelAdmin):
             return 'No image'
 
     # Метод для отображения ссылки на редактирование машины
-    def car_link(self, obj):
-        url = reverse('admin:contents_car_change', args=[obj.car.id])
-        return mark_safe(f'<a href="{url}">{obj.car}</a>')
+    def car_name(self, obj: Car):
+        return obj.get_name()
 
-    car_link.short_description = 'Car'
+    car_name.short_description = 'Car'
 
 
 class ContactResource(resources.ModelResource):
